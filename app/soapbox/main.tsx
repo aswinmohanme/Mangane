@@ -6,6 +6,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { defineMessages } from 'react-intl';
 
+
 import snackbar from 'soapbox/actions/snackbar';
 import { setSwUpdating } from 'soapbox/actions/sw';
 import * as BuildConfig from 'soapbox/build_config';
@@ -17,9 +18,17 @@ import * as monitoring from './monitoring';
 import * as perf from './performance';
 import ready from './ready';
 
+import mixpanel from "mixpanel-browser";
+
 const messages = defineMessages({
   update: { id: 'sw.update', defaultMessage: 'Update' },
   updateText: { id: 'sw.update_text', defaultMessage: 'An update is available.' },
+});
+
+mixpanel.init("fc08ca23922f10b7ca4bfff482ff6298", {
+  debug: true,
+  track_pageview: "url-with-path",
+  persistence: "localStorage",
 });
 
 function main() {
