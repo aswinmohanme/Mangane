@@ -26,7 +26,6 @@ const messages = defineMessages({
 });
 
 mixpanel.init("fc08ca23922f10b7ca4bfff482ff6298", {
-  api_host: "https://tracking.social.medicnet.app",
   debug: true,
   track_pageview: "url-with-path",
   persistence: "localStorage",
